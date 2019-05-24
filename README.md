@@ -1,0 +1,1 @@
+# vtex-checkout-custom-v6
