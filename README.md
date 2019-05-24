@@ -1,1 +1,1 @@
-# vtex-checkout-custom-v6
+# Vtex Checkout Custom v6
