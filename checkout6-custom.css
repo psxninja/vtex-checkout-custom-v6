@@ -97,8 +97,8 @@ body.loading .myfinish {
 .body-order-form .myfinish {
 	display: none;
 }
-.body-order-placed .mycart,
-.body-order-placed .mypayment {
+.body-checkout-confirmation .mycart,
+.body-checkout-confirmation .mypayment {
 	display: none;
 }
 /* FOOTER */
@@ -106,6 +106,9 @@ footer {
 	width: 100%;
 	float: left;
 	cursor: default;
+}
+.body-checkout-confirmation footer {
+	margin: 50px 0 0;
 }
 .payments-forms {
 	padding: 20px 0;
@@ -189,7 +192,6 @@ footer {
 	fill: currentColor;
 	stroke: none;
 }
-.cls-2{fill: #333!important;}
 .ep-devs li:nth-child(1):hover svg{color: #4db848;}
 .ep-devs li:nth-child(2):hover svg{color: #f36;}
 /********************************************************/
@@ -251,6 +253,24 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus{
 	box-shadow: none;
 }
+/* RADIO AND CHECKBOX */
+.radio input[type="radio"], .checkbox input[type="checkbox"] {
+	position: relative;
+}
+.checkbox input[type="checkbox"]::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #fafafa;
+	box-shadow: 0 0 0 1px #333;
+	background: #fafafa;
+}
+.checkbox input[type="checkbox"]:checked::before {
+	background: #333;
+}
 /* FRONT MESSAGES */
 body .vtex-front-messages-placeholder {
 	top: inherit;
@@ -277,6 +297,11 @@ body .vtex-front-messages-placeholder {
 		padding: 0 20px;
 	}
 }
+@media (max-width: 490px){
+	body .container {
+		padding: 0 20px !important;
+	}
+}
 /*.body-cart .container {
 	display: table;
 }*/
@@ -286,6 +311,16 @@ body .vtex-front-messages-placeholder {
 }
 .client-pre-email {
 	padding: 0 10px;
+}
+#app-top {
+	width: 100%;
+	float: left;
+}
+@media (max-width: 480px){
+	#app-top,
+	#app-container {
+		padding: 0 20px;
+	}
 }
 /**/
 body th,
@@ -467,7 +502,7 @@ h1#orderform-sac-title,
 }
 @media (max-width: 490px) {
 	.summary-template-holder > div {
-		margin: 0 10px 0 0;
+		padding: 0 10px 0 0;
 	}
 }
 @media (max-width: 450px) {
@@ -478,7 +513,7 @@ h1#orderform-sac-title,
 }
 .summary-template-holder > div {
 	display: block;
-	width: 320px;
+	width: 100%;
 	float: right;
 }
 @media (max-width: 450px) {
@@ -903,6 +938,18 @@ button.btn:hover {
 .mini-cart .info {
 	width: 100%;
 }
+@media (min-width: 980px) {
+	/*.row-fluid .mini-cart {
+		width: 30%;
+		margin: 0;
+		padding: 0 0 0 2.064103%;
+	}*/
+}
+@media (max-width: 980px) {
+	.mini-cart .item {
+		padding: 6px;
+	}
+}
 .full-cart .summary-totalizers .space:empty,
 .full-cart .summary-totalizers .empty:empty,
 .mini-cart .summary-totalizers .space:empty,
@@ -936,14 +983,37 @@ body .vtex-omnishipping-1-x-summaryChange,
 .payment-group {
 	width: 25%;
 }
+@media (max-width: 767px){
+	.payment-data .payment-group {
+		width: 100%;
+	}
+}
 .payment-group-list-btn {
 	width: 100%;
+}
+@media (max-width: 767px){
+	.payment-group-list-btn {
+		width: 100%!important;
+	}
 }
 .payment-group a {
 	color: #333;
 }
 .steps-view {
 	width: 75%;
+}
+@media (max-width: 979px) {
+	.payment-data .steps-view, .payment-data .gift-card-section, .payment-data .payment-discounts-alert {
+		width: 75%;
+	}
+}
+@media (max-width: 767px) {
+	.payment-data .steps-view, .payment-data .gift-card-section, .payment-data .payment-discounts-alert {
+		width: 100%;
+	}
+}
+.payment-installment-options-list li {
+	margin: 0 0 0 15px;
 }
 /* BNT PLACE ORDER */
 .btn-place-order-wrapper {
@@ -1002,7 +1072,8 @@ body .vtex-omnishipping-1-x-summaryChange,
 	text-transform: uppercase;
 	font-weight: 400;
 }
-.link-choose-products:hover {
+.link-choose-products:hover,
+.link-choose-products:focus {
 	background: #054d38;
 }
 /* FIELDS PROFILE */
