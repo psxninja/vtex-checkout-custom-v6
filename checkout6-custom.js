@@ -52,6 +52,7 @@
 			});
 		});
 		window.onload = function(){
+			console.log('load cart')
 			$.ajax({
 				crossDomain:true,
 				type:'GET',
